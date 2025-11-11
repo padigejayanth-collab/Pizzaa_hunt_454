@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Pizza Hut</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== ADMIN LOGIN PAGE STYLES ===== */
+
+body.login-body {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+/* Container for login box */
+.login-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Heading section */
+.login-box h2 {
+  font-size: 2rem;
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  font-size: 1rem;
+  color: #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Input fields */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Login button */
+.login-btn {
+  background-color: #e31837;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #b51228;
+  transform: scale(1.03);
+}
+
+/* Error message */
+#errorMsg {
+  color: #ff6666;
+  font-size: 0.9rem;
+  display: none;
+  margin-top: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+
+  .login-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .login-btn {
+    font-size: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Admin Login 🔐</h2>
+      <p>Enter your credentials to access the dashboard.</p>
+      <form id="adminForm" class="login-form">
+        <input type="text" id="adminUsername" placeholder="Admin Username" required>
+        <input type="password" id="adminPassword" placeholder="Password" required>
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+      <p id="errorMsg" style="color: #ff6666; margin-top: 10px; display: none;">
+        Invalid username or password ❌
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Simple Admin Login Logic
+    document.getElementById('adminForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('adminUsername').value.trim();
+      const password = document.getElementById('adminPassword').value.trim();
+
+      // Simple hardcoded admin credentials
+      const adminUser = "admin";
+      const adminPass = "12345";
+
+      if (username === adminUser && password === adminPass) {
+        window.location.href = "admin_dashboard.html";
+      } else {
+        const errorMsg = document.getElementById('errorMsg');
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
